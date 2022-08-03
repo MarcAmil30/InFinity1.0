@@ -1,4 +1,4 @@
-# Team TeamName Software Tool
+# Team Imperial_College_London 2022 Software Tool
 
 If you team competes in the [**Software & AI** track](https://competition.igem.org/participation/tracks) or wants to
 apply for the [**Best Software Tool** Award](https://competition.igem.org/judging/awards), you **MUST** host all the
