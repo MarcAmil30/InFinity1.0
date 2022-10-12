@@ -42,27 +42,27 @@ Navigate to InFinity and install the two conda environments from the supplied en
 
 2. Navigate to the InFinity directory edit the mutate.sh array job argument e.g. ``#PBS -J 0-19`` according to the computational resources available
 
-2. Run combinatorial and structural mutagenesis:
+3. Run combinatorial and structural mutagenesis:
 
     ```
-    $ qsub -v limit="1000000" mutate.sh
+    qsub -v limit="1000000" mutate.sh
     ```
 
 **Step 2: Structural Mutagenesis**
 4. in the frameworks current implementation, structural mutagenesis is done imidiately after combinatorial mutagenesis, as part of the same script. THis step has been left included to allow for future improvments, where splitting up the two jobs is more appropriate. 
 
 **Step 3: Docking**
+
 5. Navigate to InFinity/Docking/EquiBind and run:
-
     ```
-    $ qsub -v file_dir="[USER_DIR]/InFinity/Docking/EquiBind" runeq.sh
+    qsub -v file_dir="[USER_DIR]/InFinity/Docking/EquiBind" runeq.sh
     ```
-
 **Step 4: Scoring**
+
 6. Navigate to InFinity/Docking/Delta_LinF9_XGB and run:
 
     ```
-    $ qsub -v file_dir="[USER_DIR]/InFinity" move.sh
+    qsub -v file_dir="[USER_DIR]/InFinity" move.sh
     ```
 
 7. Edit the ``#PBS -J 0-99`` argument of ``scoring.sh`` according to the computational resources avaliable.
@@ -71,7 +71,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
 8. Perform docking by running: 
 
     ```
-    $ qsub -v processors="100" scoring.sh
+    qsub -v processors="100" scoring.sh
     ```
     
    100 can be changed to the number of processors availble, and matching the array job argument.
