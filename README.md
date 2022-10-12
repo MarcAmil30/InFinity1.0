@@ -51,29 +51,23 @@ Navigate to InFinity and install the two conda environments from the supplied en
 
 **Step 3: Docking**
 5. Navigate to InFinity/Docking/EquiBind and run:
-
     ```
     $ qsub -v file_dir="[USER_DIR]/InFinity/Docking/EquiBind" runeq.sh
     ```
-    
 **Step 4: Scoring**
 6. Navigate to InFinity/Docking/Delta_LinF9_XGB and run:
-
     ```
     $ qsub -v file_dir="[USER_DIR]/InFinity" move.sh
     ```
-    
 7. Edit the ``#PBS -J 0-99`` argument of ``scoring.sh`` according to the computational resources avaliable.
 
 
 8. Perform docking by running: 
-
     ```
     $ qsub -v processors="100" scoring.sh
     ```
-    
-    where 100 can be changed to the number of processors availble, and matching the array job argument.
-    
+   100 can be changed to the number of processors availble, and matching the array job argument.
+   
 9. the previous step will generate n score.csv files where n is the number of processors used to run the step. These can be concatnated ``cat scores*.csv > final_scores.csv`` These can then be ranked and ordered.
 
 **Step 5: Multiple Sequence Allignment**
