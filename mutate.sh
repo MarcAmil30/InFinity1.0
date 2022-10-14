@@ -5,7 +5,7 @@
 #PBS -J 1-20 
 
 module load anaconda3/personal 
-source activate pipeline_env
+source activate equibind
 
 cd $file_dir/Docking/mutants
 python3 $file_dir/modified_permutation.py $limit_r 
