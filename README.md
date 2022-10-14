@@ -77,6 +77,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
 9. The previous step will generate n score.csv files where n is the number of processors used to run the step. These can be concatnated ``cat scores*.csv > final_scores.csv`` These can then be ranked with ``sort -k2 -n -t, final_scores.csv``
 
 **Step 5: Multiple Sequence Allignment**
+
 10. Using the scores generated from the previous step, mutants with a desired alteration in ligand affinity/specificity can then be uploaded and screened using an MSA tool such as Clustal Omega, with enriched motifs serving as strarting point for further rational design/ screening analysis 
 
 ## Contributions
