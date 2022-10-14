@@ -81,7 +81,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
 10. Using the scores generated from the previous step, mutants with a desired alteration in ligand affinity/specificity can then be uploaded and screened using an MSA tool such as Clustal Omega, with enriched motifs serving as strarting point for further rational design/ screening analysis 
 
 ## Contributions
-With the interchangability of the invidual steps, we encourage community contributions to test out other tools and help us continously improve the framework.
+With the interchangability of the invidual steps, we encourage community contributions to test out other tools and help us continuously improve the framework.
 
 ## Authors and acknowledgments
 The framework was developed by Marc Amil and Rasmus Hildebrandt.
