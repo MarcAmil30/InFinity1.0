@@ -36,7 +36,7 @@ The final installation step is to get the conda modules in order. For compatabil
 Navigate to InFinity and install the two conda environments from the supplied environment.yml file thorugh ``conda env create -f environment_docking.yml`` and ``conda env create -f environment_scoring.yml``.
 
 ## Usage
-**Step 1: combinatorial mutagenesis**
+**Step 1: Combinatorial mutagenesis**
 
 1. First navigate to the input_trial.csv file in the main folder. Insert the sequence of the protein in ``SEQUENCE`` column, and the positions whished to be mutated in the ``POSITION TO MUTATE``column, seperating each with a comma.
 
@@ -82,7 +82,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
 ## Contributions
 With the interchangability of the invidual steps, we encourage community contributions to test out other tools and help us continously improve the framework.
 
-## Authors and acknowledgment
+## Authors and acknowledgments
 The framework was developed by Marc Amil and Rasmus Hildebrandt.
 With the exception of the tool performing combinatorial mutagenesis remaining steps heavily relief on the adaptation of several published tools were used and sduch we thank the authors for making their work freely available:
 
