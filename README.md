@@ -1,13 +1,13 @@
 # InFinity 1.0
-This is the offical page for the InFinity 1.0 ligand-affinity centered protein re-engineering pipeline, as developed for the 2022 Imperial College London team for the iGEM competition. 
+This is the offical page for the InFinity 1.0 ligand-affinity centered protein re-engineering pipeline, as developed by the  Imperial College London team for the 2022 iGEM competition. 
 
 ## Description
-InFinity 1.0 is protein reengineering framework which utilises five _in silico_ steps to perform high-throughput mutagenesis, screening of sampled mutants affinity to a chosen ligand, followed by ranking and multiple sequence allignment to identify potential motifs that can alter ligand specificity/affinity. What makes this tool novel is the implementation of several highly efficient recently released tools in a plug-and-play framework, improving accesibility. With the exception of the first step, each of the steps in the current framework utilise published or pre-published opensource tools, and as such attributions should go to the respective authors. Initial testing has shown similar scoring power to established scoring functions, yet we aknowledge that further improvments are necessitated, especially in terms of energy minimsation and fold prediction following mutagensis, if we are to consider directly screening top mutants generated from this pipeline. Nonetheless, in its current state InFinity 1.0 serves as an extra tool in the toolkit of a synthetic biologist, to help aid in rational design and potentially  help narrow down screening efforts. 
+InFinity 1.0 is protein reengineering framework which utilises five _in silico_ steps to perform high-throughput mutagenesis, screening of sampled mutants affinity to a chosen ligand, followed by ranking and multiple sequence allignment to identify potential motifs that can alter ligand specificity/affinity. What makes this tool novel is the implementation of several highly efficient recently released tools in a plug-and-play framework, improving accesibility. With the exception of the first step, each of the steps in the current framework utilise published or pre-published open-source tools, and as such acknowledgments should go to the respective authors. Initial testing has shown similar scoring power to established scoring functions, yet we aknowledge that further improvments are necessitated, especially in terms of energy minimisation and fold prediction following mutagensis, if we are to consider directly screening top mutants generated from this pipeline. Nonetheless, in its current state InFinity 1.0 serves as an extra tool in the toolkit of a synthetic biologist, to help aid in rational design and potentially  help narrow down screening efforts. 
 
 To use the framework the user should have access to a computing cluster with GPU-capability along with 1tb of storage per 1,000,000 mutants to be screened.
 The current release is made for PBS-type HPC schedulers, but it may easily be addapted for SLURM schedulers aswell. 
 ## Instalation
-First clone InFinity to a directory within the computing cluster. Next install MGLTools, if this is not already on your system (MGLTools can be downloaded from https://ccsb.scripps.edu/mgltools/downloads/). MSMS can then be downloaded from https://ccsb.scripps.edu/msms/downloads/ and installed as such: 
+First clone InFinity to a directory within the computing cluster. Next install MGLTools if this is not already on your system (MGLTools can be downloaded from https://ccsb.scripps.edu/mgltools/downloads/). MSMS can then be downloaded from https://ccsb.scripps.edu/msms/downloads/ and installed as such: 
 ```
 cd [USER_DIR]/delta_LinF9_XGB/software/
 mkdir msms
@@ -22,8 +22,8 @@ tar -zxvf AlphaSpace2_2021.tar.gz
 cd AlphaSpace2_2021
 pip install -e ./
 ```
-With this done its time to ensure the pipline knows what and where to run. THerefor perform the following edits:
-Edit ``InFinity/Docking/EquiBind/configs_clean/inference.yml``, substituing [USER_DIR] in the highlighted filepaths for the filepath of InFInity in your cluster. 
+With this done, it's time to ensure the pipline knows what and where to run. Therefore, perform the following edits:
+Edit ``InFinity/Docking/EquiBind/configs_clean/inference.yml``, substituting [USER_DIR] in the highlighted filepaths for the filepath of InFInity in your cluster. 
 Simmilarly the following files should be edited, replacing [USER_DIR]:
 ``InFinity/Scoring/Delta_LinF9_XGB/script/runXGB.py``<br>
 ``InFinity/Scoring/Delta_LinF9_XGB/script/calc_vina_features.py``<br>
@@ -40,7 +40,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
 
 1. First navigate to the input_trial.csv file in the main folder. Insert the sequence of the protein in ``SEQUENCE`` column, and the positions whished to be mutated in the ``POSITION TO MUTATE``column, seperating each with a comma.
 
-2. Navigate to the InFinity directory edit the mutate.sh array job argument e.g. ``#PBS -J 0-19`` according to the computational resources available
+2. Navigate to the InFinity directory and edit the mutate.sh array job argument e.g. ``#PBS -J 0-19`` according to the computational resources available
 
 3. Run combinatorial and structural mutagenesis:
 
@@ -49,7 +49,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
     ```
 
 **Step 2: Structural Mutagenesis**
-4. in the frameworks current implementation, structural mutagenesis is done imidiately after combinatorial mutagenesis, as part of the same script. THis step has been left included to allow for future improvments, where splitting up the two jobs is more appropriate. 
+4. In the framework's current implementation, structural mutagenesis is done immediately after combinatorial mutagenesis, as part of the same script. This step has been left included to allow for future improvments, where splitting up the two jobs is more appropriate. 
 
 **Step 3: Docking**
 
@@ -73,12 +73,11 @@ Navigate to InFinity and install the two conda environments from the supplied en
     ```
     qsub -v processors="100" scoring.sh
     ```
-    
-   
-9. the previous step will generate n score.csv files where n is the number of processors used to run the step. These can be concatnated ``cat scores*.csv > final_scores.csv`` These can then be ranked and ordered.
+    Edit processors to suit the configuration 
+9. The previous step will generate n score.csv files where n is the number of processors used to run the step. These can be concatnated ``cat scores*.csv > final_scores.csv`` These can then be ranked with ``sort -k2 -n -t, final_scores.csv``
 
 **Step 5: Multiple Sequence Allignment**
-10. Using the scores generated from the previous step, mutants with a desired alteration in ligand affinity/specificity can be screened using an MSA tool such as Clustal Omega, with enrichmed motifs serving as strarting point sfor further rational design/ screening analysis 
+10. Using the scores generated from the previous step, mutants with a desired alteration in ligand affinity/specificity can then be uploaded and screened using an MSA tool such as Clustal Omega, with enriched motifs serving as strarting point for further rational design/ screening analysis 
 
 ## Contributions
 With the interchangability of the invidual steps, we encourage community contributions to test out other tools and help us continously improve the framework.
