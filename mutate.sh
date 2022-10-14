@@ -7,7 +7,7 @@
 module load anaconda3/personal 
 source activate pipeline_env
 
-cd $PBS_O_WORKDIR
-python3 modified_permutation.py $limit_r 
+cd $file_dir/Docking/mutants
+python3 $file_dir/modified_permutation.py $limit_r 
 
 
