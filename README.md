@@ -8,6 +8,8 @@ InFinity 1.0 is a protein reengineering framework that employs five _in silico_ 
 
 To use the framework, users require access to a computing cluster with GPU-capability and 1TB of storage per 1,000,000 mutants to be screened. The current release is designed for PBS-type HPC schedulers, but it can easily be adapted for SLURM schedulers as well.
 
+<img width="1232" alt="Screenshot 2023-04-30 at 11 54 09" src="https://user-images.githubusercontent.com/64206686/235349527-fc392fcf-f7b9-4684-9856-1312cecd757b.png">
+
 ## Installation 
 First clone InFinity to a directory within the computing cluster. Next install MGLTools if this is not already on your system (MGLTools can be downloaded from the Center for Computational Structural Biology's webpage). MSMS can then be downloaded from Center for Computational Structural Biology's webpage and installed as such: 
 ```
