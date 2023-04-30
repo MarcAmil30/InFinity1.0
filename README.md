@@ -1,20 +1,9 @@
-# InFinity 1.0
-This is the offical page for the InFinity 1.0 ligand-affinity centered protein re-engineering pipeline, as developed by the  Imperial College London team for the 2022 iGEM competition. 
-
-## Description
-InFinity 1.0 is protein reengineering framework which utilises five _in silico_ steps to perform high-throughput mutagenesis, screening of sampled mutants affinity to a chosen ligand, followed by ranking and multiple sequence allignment to identify potential motifs that can alter ligand specificity/affinity. What makes this tool novel is the implementation of several highly efficient recently released tools in a plug-and-play framework, improving accesibility. With the exception of the first step, each of the steps in the current framework utilise published or pre-published open-source tools, and as such acknowledgments should go to the respective authors. Initial testing has shown similar scoring power to established scoring functions, yet we aknowledge that further improvments are necessitated, especially in terms of energy minimisation and fold prediction following mutagensis, if we are to consider directly screening top mutants generated from this pipeline. Nonetheless, in its current state InFinity 1.0 serves as an extra tool in the toolkit of a synthetic biologist, to help aid in rational design and potentially  help narrow down screening efforts. 
-
-To use the framework the user should have access to a computing cluster with GPU-capability along with 1tb of storage per 1,000,000 mutants to be screened.
-The current release is made for PBS-type HPC schedulers, but it may easily be addapted for SLURM schedulers aswell. 
-## Instalation
-=======
 # InFinity1.0
 This is the offical page for the InFinity 1.0 ligand-affinity centered protein re-engineering pipeline, as developed by the  Imperial College London team for the 2022 iGEM competition. https://2022.igem.wiki/imperial-college-london/software 
 
 
 ## Description 
 InFinity 1.0 is a protein reengineering framework that employs five _in silico_ steps to conduct high-throughput mutagenesis, screening of sampled mutants for their affinity to a selected ligand, followed by ranking and multiple sequence alignment to identify potential motifs capable of altering ligand specificity/affinity. What sets this tool apart is its innovative use of several highly efficient recently released plug-and-play tools, which improve accessibility. With the exception of the first step, each of the stages in the current framework employs published or pre-published open-source tools, and therefore credit should be given to the respective authors. Preliminary testing has shown similar scoring power to established scoring functions, although we recognize that further improvements are necessary, particularly in terms of energy minimization and fold prediction following mutagenesis, if we are to directly screen the top mutants generated from this pipeline. Nevertheless, InFinity 1.0 serves as an additional tool in the synthetic biologist's toolkit, aiding in rational design and potentially narrowing down screening efforts.
-
 
 To use the framework, users require access to a computing cluster with GPU-capability and 1TB of storage per 1,000,000 mutants to be screened. The current release is designed for PBS-type HPC schedulers, but it can easily be adapted for SLURM schedulers as well.
 
