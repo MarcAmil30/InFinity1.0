@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # InFinity 1.0
 This is the offical page for the InFinity 1.0 ligand-affinity centered protein re-engineering pipeline, as developed by the  Imperial College London team for the 2022 iGEM competition. 
 
@@ -25,8 +24,8 @@ To use the framework, users require access to a computing cluster with GPU-capab
 
 
 ## Installation 
->>>>>>> origin/main
 First clone InFinity to a directory within the computing cluster. Next install MGLTools if this is not already on your system (MGLTools can be downloaded from the Center for Computational Structural Biology's webpage). MSMS can then be downloaded from Center for Computational Structural Biology's webpage and installed as such: 
+
 ```
 cd [USER_DIR]/delta_LinF9_XGB/software/
 mkdir msms
@@ -113,11 +112,3 @@ Schrödinger, L. & DeLano, W., 2020. PyMOL, Available at: http://www.pymol.org/p
 Stärk, H. et al., 2022, ‘EquiBind: Geometric Deep Learning for Drug Binding Structure Prediction’. Available at: https://doi.org/10.48550/arXiv.2202.05146.
 
 Yang, C. and Zhang, Y., 2022, ‘Delta Machine Learning to Improve Scoring-Ranking-Screening Performances of Protein–Ligand Scoring Functions’, Journal of Chemical Information and Modeling, 62(11), pp. 2696–2712. Available at: https://doi.org/10.1021/acs.jcim.2c00485.
-
-
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> origin/main
