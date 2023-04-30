@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # InFinity 1.0
 This is the offical page for the InFinity 1.0 ligand-affinity centered protein re-engineering pipeline, as developed by the  Imperial College London team for the 2022 iGEM competition. 
 
@@ -7,6 +8,24 @@ InFinity 1.0 is protein reengineering framework which utilises five _in silico_ 
 To use the framework the user should have access to a computing cluster with GPU-capability along with 1tb of storage per 1,000,000 mutants to be screened.
 The current release is made for PBS-type HPC schedulers, but it may easily be addapted for SLURM schedulers aswell. 
 ## Instalation
+=======
+# InFinity1.0
+This is the offical page for the InFinity 1.0 ligand-affinity centered protein re-engineering pipeline, as developed by the  Imperial College London team for the 2022 iGEM competition. https://2022.igem.wiki/imperial-college-london/software 
+
+
+## Description 
+InFinity 1.0 is a protein reengineering framework that employs five _in silico_ steps to conduct high-throughput mutagenesis, screening of sampled mutants for their affinity to a selected ligand, followed by ranking and multiple sequence alignment to identify potential motifs capable of altering ligand specificity/affinity. What sets this tool apart is its innovative use of several highly efficient recently released plug-and-play tools, which improve accessibility. With the exception of the first step, each of the stages in the current framework employs published or pre-published open-source tools, and therefore credit should be given to the respective authors. Preliminary testing has shown similar scoring power to established scoring functions, although we recognize that further improvements are necessary, particularly in terms of energy minimization and fold prediction following mutagenesis, if we are to directly screen the top mutants generated from this pipeline. Nevertheless, InFinity 1.0 serves as an additional tool in the synthetic biologist's toolkit, aiding in rational design and potentially narrowing down screening efforts.
+
+
+To use the framework, users require access to a computing cluster with GPU-capability and 1TB of storage per 1,000,000 mutants to be screened. The current release is designed for PBS-type HPC schedulers, but it can easily be adapted for SLURM schedulers as well.
+
+<img width="1232" alt="Screenshot 2023-04-30 at 11 54 09" src="https://user-images.githubusercontent.com/64206686/235349527-fc392fcf-f7b9-4684-9856-1312cecd757b.png"> 
+
+**Figure 2: Overview of proposed framework for computational protein engineering**. The framework will benefit from advances in structural modelling and molecular docking. Adapting these for use in computational protein engineering could allow for high-throughput screening of mutants, aiding in design and testing to be carried out in the lab.
+
+
+## Installation 
+>>>>>>> origin/main
 First clone InFinity to a directory within the computing cluster. Next install MGLTools if this is not already on your system (MGLTools can be downloaded from the Center for Computational Structural Biology's webpage). MSMS can then be downloaded from Center for Computational Structural Biology's webpage and installed as such: 
 ```
 cd [USER_DIR]/delta_LinF9_XGB/software/
@@ -96,3 +115,9 @@ Stärk, H. et al., 2022, ‘EquiBind: Geometric Deep Learning for Drug Binding S
 Yang, C. and Zhang, Y., 2022, ‘Delta Machine Learning to Improve Scoring-Ranking-Screening Performances of Protein–Ligand Scoring Functions’, Journal of Chemical Information and Modeling, 62(11), pp. 2696–2712. Available at: https://doi.org/10.1021/acs.jcim.2c00485.
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/main
