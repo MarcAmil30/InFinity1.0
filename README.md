@@ -12,6 +12,11 @@ To use the framework, users require access to a computing cluster with GPU-capab
 **Figure 1: Overview of proposed framework for computational protein engineering**. The framework will benefit from advances in structural modelling and molecular docking. Adapting these for use in computational protein engineering could allow for high-throughput screening of mutants, aiding in design and testing to be carried out in the lab.
 
 
+<img width="723" alt="Screenshot 2023-05-02 at 15 16 57" src="https://user-images.githubusercontent.com/64206686/235693790-74e15a51-1a4f-4d5a-9d14-90c7320980f8.png">
+
+**Figure 2: Overview of implented _Infinity 1.0_ pipeline:** Process begins with a csv file (input_trial.csv) in which users can input the sequeence and mutations of choice. For each stage, a script has been created to interface between the user and incorporated tool. Aside from the initial sequence information and computational resource specification, the pipeline requires minimal user input to run. 
+
+
 ## Installation 
 First clone InFinity to a directory within the computing cluster. Next install MGLTools if this is not already on your system (MGLTools can be downloaded from the Center for Computational Structural Biology's webpage). MSMS can then be downloaded from Center for Computational Structural Biology's webpage and installed as such: 
 
