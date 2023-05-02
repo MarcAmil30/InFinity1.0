@@ -56,9 +56,9 @@ Navigate to InFinity and install the two conda environments from the supplied en
     ```
 4. When the User interface appear: put all the amino acids as capital letters and for positions to mutate add a comma in better for each position. e.g. Sequence: AAAAAAAAAA & Positions to mutate: 2,5 . Currently the software only accepts more than one positions to mutate.
 
-<img width="498" alt="Screenshot 2023-05-01 at 19 08 20" src="https://user-images.githubusercontent.com/64206686/235503469-63b1dd58-fa48-495e-9f91-2cadccd8ff1b.png">
+<img width="356" alt="Screenshot 2023-05-02 at 15 10 41" src="https://user-images.githubusercontent.com/64206686/235692296-6d17d20c-28b0-4585-8a24-08eab41db12c.png">
 
-**Figure 2: User Interface of InFinity 1.0**. The User Interface is divided into two sections the amino acid sequence and positions you want to mutate in the sequence.  
+**Figure 2: CSV File of InFinity 1.0 for user input**. The csv is divided into three sections. The two most important are the amino acid sequence and the positions you want to mutate in the sequence.
 
 The framework will benefit from advances in structural modelling and molecular docking. Adapting these for use in computational protein engineering could allow for high-throughput screening of mutants, aiding in design and testing to be carried out in the lab.
 
