@@ -56,7 +56,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
 3. Run combinatorial and structural mutagenesis:
 
     ```
-    qsub -v file_dir="[USER_DIR]/InFinity" limit="1000000" mutate.sh
+    qsub -v file_dir="[USER_DIR]/InFinity",limit="1000000" mutate.sh
     ```
 4. When the User interface appear: put all the amino acids as capital letters and for positions to mutate add a comma in better for each position. e.g. Sequence: AAAAAAAAAA & Positions to mutate: 2,5 . Currently the software only accepts more than one positions to mutate.
 
