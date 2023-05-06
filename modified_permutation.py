@@ -1,8 +1,9 @@
+import sys
 import time 
 import math
 from  itertools import combinations_with_replacement, permutations, combinations, islice, product
 import pandas as pd 
-# from pymol import cmd
+from pymol import cmd
 import os 
 import random 
 from random import randrange as rr
@@ -13,18 +14,15 @@ limit_r = int(sys.argv[1])
 indexlist2 = []
 reslist2 = []
 
-
 aminoacid = 'ARNDCQEGHILKMFPSTWYV'
 
-csvread = pd.read_csv('input_trial2_copy.csv')
-chain = csvread.iloc[0, 3]
-chain_number = chaintonumber(chain)
+#Input data 
+csvread = pd.read_csv('input_trial.csv')
 sequence = csvread.iloc[0, 1]
 inputpositions = csvread.iloc[0, 2]
 inputpositions = inputpositions.split(',')
 positions_n = len(inputpositions)
 positionstomutate = [int(positionstomutate) - 1 for positionstomutate in inputpositions] 
-print(positionstomutate)
 
 def generate(length):
     code=[]
@@ -36,9 +34,10 @@ def generate(length):
 peptide = []
 count = 0 
 
-limit = [generate(positions_n) for _ in range(limit_r)]
+limit = [generate(positions_n) for _ in range(limit_r)] #different permutations to mutate sequence to 
 
-def string_perms(s, indices):
+
+def string_perms(s, indices): #different combinations given to PyMOL 
     for x in limit:
         peptide.append(''.join(x))
         aa = iter(x)  
@@ -56,7 +55,7 @@ def detectres(wild_type, mutated_seq):
         indexlist = [str(1 +index) for index,(first, second) in enumerate(zip(wild_type, seq)) if first != second]
         reslist = [second for index,(first, second) in enumerate(zip(wild_type, seq)) if first != second]
         indexlist2.append(indexlist)
-        reslist2.append(reslist)
+        reslist2.append(reslist) 
 
 def get_resi(selection): 
     #checks the residue of a given protein
@@ -134,7 +133,7 @@ def mutate(selection, aa):
 WT  = ['P', 'I', 'F', 'L', 'N', 'V', 'L', 'E', 'A', 'I', 'E', 'P', 'G', 'V', 'V', 'C', 'A', 'G', 'H', 'D', 'N', 'N', 'Q', 'P', 'D', 'S', 'F', 'A', 'A', 'L', 'L', 'S', 'S', 'L', 'N', 'E', 'L', 'G', 'E', 'R', 'Q', 'L', 'V', 'H', 'V', 'V', 'K', 'W', 'A', 'K', 'A', 'L', 'P', 'G', 'F', 'R', 'N', 'L', 'H', 'V', 'D', 'D', 'Q', 'M', 'A', 'V', 'I', 'Q', 'Y', 'S', 'W', 'M', 'G', 'L', 'M', 'V', 'F', 'A', 'M', 'G', 'W', 'R', 'S', 'F', 'T', 'N', 'V', 'N', 'S', 'R', 'M', 'L', 'Y', 'F', 'A', 'P', 'D', 'L', 'V', 'F', 'N', 'E', 'Y', 'R', 'M', 'H', 'K', 'S', 'R', 'M', 'Y', 'S', 'Q', 'C', 'V', 'R', 'M', 'R', 'H', 'L', 'S', 'Q', 'E', 'F', 'G', 'W', 'L', 'Q', 'I', 'T', 'P', 'Q', 'E', 'F', 'L', 'C', 'M', 'K', 'A', 'L', 'L', 'L', 'F', 'S', 'I', 'I', 'P', 'V', 'D', 'G', 'L', 'K', 'N', 'Q', 'K', 'F', 'F', 'D', 'E', 'L', 'R', 'M', 'N', 'Y', 'I', 'K', 'E', 'L', 'D', 'R', 'I', 'I', 'A', 'C', 'K', 'R', 'K', 'N', 'P', 'T', 'S', 'C', 'S', 'R', 'R', 'F', 'Y', 'Q', 'L', 'T', 'K', 'L', 'L', 'D', 'S', 'V', 'Q', 'P', 'I', 'A', 'R', 'E', 'L', 'H', 'Q', 'F', 'T', 'F', 'D', 'L', 'L', 'I', 'K', 'S', 'H', 'M', 'V', 'S', 'V', 'D', 'F', 'P', 'E', 'M', 'M', 'A', 'E', 'I', 'I', 'S', 'V', 'Q', 'V', 'P', 'K', 'I', 'L', 'S', 'G', 'K', 'V', 'K', 'P', 'I', 'Y', 'F', 'H', 'T', 'Q']
 
 if __name__ == "__main__":
-    mutated_seqlist = list(string_perms(sequence, positionstomutate))
+    mutated_seqlist = list(string_perms(sequence, positionstomutate)) #sequence permutation 
     grouped_seq = splitter(mutated_seqlist, NUM_WORKERS)
     counter = 0 
     array_index = int(os.environ['PBS_ARRAY_INDEX'])
@@ -144,10 +143,18 @@ if __name__ == "__main__":
             index_group = grouped_seq[t]
             detectres(WT, index_group)
             mutate.__doc__ = __doc__
+            cmd.reinitialize()
             cmd.extend('mutate', mutate)
             cmd.load('3b5r.pdb')
+            # for j, x in zip(indexlist2[t], reslist2[t]): #the code here is without using parallelization and multi-threading 
+            #     mutate('resi' + ' ' + j,x)
+            #     cmd.save('trial_protein_{0}.pdb'.format(t))
             for i in range(len(indexlist2)):
                 for j, x in zip(indexlist2[i], reslist2[i]):
-                    print(j)
-                    mutate('resi' + '' + j,x)
+                    mutate('resi' + ' ' + j,x)
                     cmd.save('trial_{0}k_protein_{1}.pdb'.format(i, t))
+        
+
+
+
+    
