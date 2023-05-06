@@ -51,7 +51,9 @@ Navigate to InFinity and install the two conda environments from the supplied en
 
 1. First navigate to the input_trial.csv file in the main folder. Insert the sequence of the protein in ``SEQUENCE`` column, and the positions whished to be mutated in the ``POSITION TO MUTATE``column, seperating each with a comma.
 
-2. Navigate to the InFinity directory and edit the mutate.sh array job argument e.g. ``#PBS -J 0-19`` according to the computational resources available
+2. Navigate to the file 'modified_permutation.py' and in the variable called ```WT``` make sure to put in your wild type sequence making sure that it is comma separated. For example WT = ['A', 'A', 'A', 'A'].
+
+3. Navigate to the InFinity directory and edit the mutate.sh array job argument e.g. ``#PBS -J 0-19`` according to the computational resources available
 
 3. Run combinatorial and structural mutagenesis:
 
