@@ -55,7 +55,7 @@ Navigate to InFinity and install the two conda environments from the supplied en
 
 **Figure 2: CSV File of InFinity 1.0 for user input**. The csv is divided into three sections. The two most important are the amino acid sequence and the positions you want to mutate in the sequence.
 
-2. Navigate to the file ```modified_permutation.py``` and in the variable called ```WT``` make sure to put in your wild type sequence making sure that it is comma separated. For example ```WT = ['A', 'A', 'A', 'A']```. Additionally in ```modified_permutation.py``` make sure to input your own ```.pdb``` file in the part ```cmd.load()```. For example ```cmd.load('3b5r.pdb')```.
+2. Navigate to the file ```modified_permutation.py``` and in the variable called ```WT``` make sure to put in your wild type sequence making sure that it is comma separated. For example ```WT = ['A', 'A', 'A', 'A']```. Additionally in ```modified_permutation.py``` make sure to input your own ```.pdb``` file in the part ```cmd.load()```. For example ```cmd.load('3b5r.pdb')```. Additionally, make sure to put in your ```.pdb``` file in the same directory as ```modified_permutation.py```.
 
 3. Navigate to the InFinity directory and edit the mutate.sh array job argument e.g. ``#PBS -J 0-19`` according to the computational resources available
 
