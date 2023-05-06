@@ -49,7 +49,11 @@ Navigate to InFinity and install the two conda environments from the supplied en
 ## Usage
 **Step 1: Combinatorial mutagenesis**
 
-1. First navigate to the input_trial.csv file in the main folder. Insert the sequence of the protein in ``SEQUENCE`` column, and the positions whished to be mutated in the ``POSITION TO MUTATE``column, seperating each with a comma.
+1. First navigate to the ```input_trial.csv``` file in the main folder. Insert the sequence of the protein in ``SEQUENCE`` column (making sure they are all in capital letters), and the positions wished to be mutated in the ``POSITION TO MUTATE``column, seperating each with a comma. Currently the software only accepts more than one positions to mutate. Example shown in **Figure 2**.
+
+<img width="356" alt="Screenshot 2023-05-02 at 15 10 41" src="https://user-images.githubusercontent.com/64206686/235692296-6d17d20c-28b0-4585-8a24-08eab41db12c.png">
+
+**Figure 2: CSV File of InFinity 1.0 for user input**. The csv is divided into three sections. The two most important are the amino acid sequence and the positions you want to mutate in the sequence.
 
 2. Navigate to the file ```modified_permutation.py``` and in the variable called ```WT``` make sure to put in your wild type sequence making sure that it is comma separated. For example ```WT = ['A', 'A', 'A', 'A']```. Additionally in ```modified_permutation.py``` make sure to input your own ```.pdb``` file in the part ```cmd.load()```. For example ```cmd.load('3b5r.pdb')```.
 
@@ -60,11 +64,6 @@ Navigate to InFinity and install the two conda environments from the supplied en
     ```
     qsub -v file_dir="[USER_DIR]/InFinity",limit="1000000" mutate.sh
     ```
-4. When the User interface appear: put all the amino acids as capital letters and for positions to mutate add a comma in better for each position. e.g. Sequence: AAAAAAAAAA & Positions to mutate: 2,5 . Currently the software only accepts more than one positions to mutate.
-
-<img width="356" alt="Screenshot 2023-05-02 at 15 10 41" src="https://user-images.githubusercontent.com/64206686/235692296-6d17d20c-28b0-4585-8a24-08eab41db12c.png">
-
-**Figure 2: CSV File of InFinity 1.0 for user input**. The csv is divided into three sections. The two most important are the amino acid sequence and the positions you want to mutate in the sequence.
 
 The framework will benefit from advances in structural modelling and molecular docking. Adapting these for use in computational protein engineering could allow for high-throughput screening of mutants, aiding in design and testing to be carried out in the lab.
 
